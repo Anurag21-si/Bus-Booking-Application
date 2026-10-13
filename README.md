@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚌 Bus Booking Application
 
 A full-stack Bus Ticket Booking Platform built using Angular and Spring Boot that enables users to search buses, book seats, and manage their travel bookings efficiently.
@@ -112,3 +113,6 @@ GitHub: https://github.com/vatsalyasaras
 ## ⭐ Support
 
 If you found this project helpful, give it a ⭐ on GitHub!
+=======
+# Bus-Booking-Application
+>>>>>>> abfcc8efd8d0a3a4c8e11239295b0eab2ff847ec
