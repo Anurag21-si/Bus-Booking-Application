@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>My Bookings</h2>
+
+  <!-- Show loading / empty state -->
+  <ng-container *ngIf="bookings$ | async as bookings; else loading">
+
+    <div *ngIf="bookings.length === 0">
+      <p>No bookings found</p>
+    </div>
+
+    <div *ngFor="let booking of bookings" class="booking-card">
+
+      <h3>🚌 {{ booking.bus.busName }}</h3>
+
+      <p><strong>Booking ID:</strong> {{ booking.bookingId }}</p>
+
+      <p>
+        <strong>Seats:</strong>
+         {{ getSeatNumbers(booking) }}
+      </p>
+
+      <!-- ✅ FIXED -->
+      <p>
+        <strong>Route:</strong>
+        {{ booking.bus.source }} → {{ booking.bus.destination }}
+      </p>
+
+      <!-- ✅ OPTIONAL (if added in backend) -->
+      <!-- <p>
+        <strong>Journey Date:</strong>
+        {{ booking.journeyDate }}
+      </p> -->
+
+      <p>
+        <strong>Amount:</strong>
+        ₹ {{ booking.totalAmount }}
+      </p>
+
+     <p>
+  <strong>Status:</strong>
+  <span [ngClass]="booking.status === 'CONFIRMED' ? 'success' : 'pending'">
+    {{ booking.status }}
+  </span>
+</p>
+
+      <p>
+        <strong>Booked On:</strong>
+        {{ booking.bookingDate | date:'medium' }}
+      </p>
+
+    </div>
+
+  </ng-container>
+
+  <!-- Loading -->
+  <ng-template #loading>
+    <p>Loading bookings...</p>
+  </ng-template>
+</div>

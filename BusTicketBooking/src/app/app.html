@@ -1,0 +1,24 @@
+<div class="app-container">
+  
+
+  <header class="app-header">
+    <h1 class="app-title">BusKaro</h1>
+  </header>
+
+  <nav *ngIf="showNavbar" class="navbar">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/about">About Us</a>
+    <a routerLink="/buses">Buses</a>
+    <a routerLink="/bookings">My Bookings</a>
+    <a routerLink="/logout">Logout</a>
+  </nav>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="app-footer">
+    <app-footer></app-footer>
+  </footer>
+
+</div>

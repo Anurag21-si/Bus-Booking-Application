@@ -1,0 +1,63 @@
+<h2>Register</h2>
+
+<div class="form-box">
+
+  <input
+    type="text"
+    placeholder="Name"
+    [(ngModel)]="user.name"
+    #nameInput="ngModel"
+    required
+  >
+  <small *ngIf="nameInput.invalid && nameInput.touched" style="color:red">
+    Name is required
+  </small>
+
+  <input
+    type="email"
+    placeholder="Email"
+    [(ngModel)]="user.email"
+    #emailInput="ngModel"
+    required
+    email
+  >
+  <small *ngIf="emailInput.invalid && emailInput.touched" style="color:red">
+    Valid email is required
+  </small>
+
+  <input
+    type="text"
+    placeholder="Phone"
+    [(ngModel)]="user.phone"
+    #phoneInput="ngModel"
+    required
+  >
+  <small *ngIf="phoneInput.invalid && phoneInput.touched" style="color:red">
+    Phone is required
+  </small>
+
+  <input
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="user.password"
+    #passwordInput="ngModel"
+    required
+    minlength="6"
+  >
+  <small *ngIf="passwordInput.errors?.['required'] && passwordInput.touched" style="color:red">
+    Password is required
+  </small>
+  <small *ngIf="passwordInput.errors?.['minlength'] && passwordInput.touched" style="color:red">
+    Password must be at least 6 characters
+  </small>
+
+  <button
+    (click)="register()"
+    [disabled]="!nameInput.valid || !emailInput.valid || !phoneInput.valid || !passwordInput.valid"
+  >
+    Register
+  </button>
+
+  <p style="color:red" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+</div>

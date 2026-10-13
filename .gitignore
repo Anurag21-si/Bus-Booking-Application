@@ -1,0 +1,21 @@
+# Node
+node_modules/
+dist/
+
+# Angular
+.angular/
+.cache/
+
+# Spring Boot / Java
+target/
+*.log
+
+# STS / Eclipse (IMPORTANT)
+.metadata/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db

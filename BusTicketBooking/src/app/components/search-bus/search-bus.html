@@ -1,0 +1,21 @@
+<div class="background">
+
+
+  <!-- Roads (Parallax layers) -->
+  <div class="road road-back"></div>
+  <div class="road road-front"></div>
+
+  <!-- Buses (PNG images) -->
+  <img src="ChatGPT Image Mar 19, 2026, 11_55_44 AM.png" class="bus bus1">
+  <img src="ChatGPT Image Mar 19, 2026, 11_55_44 AM.png" class="bus bus2">
+
+</div>
+
+<div class="container">
+  <h2>Search Bus</h2>
+
+  <input type="text" placeholder="Source" [(ngModel)]="source">
+  <input type="text" placeholder="Destination" [(ngModel)]="destination">
+
+  <button (click)="search()">Search</button>
+</div>

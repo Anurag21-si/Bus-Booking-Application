@@ -1,0 +1,65 @@
+package com.busbooking.entity;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "seats")
+public class Seats {
+	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "seat_id")
+    private int seatId;
+
+    @Column(name = "seat_number")
+    private String seatNumber;
+    
+    // ✅ Prevent loop
+    @ManyToOne
+    @JoinColumn(name = "bus_id")
+    @JsonIgnoreProperties({"seats", "bookings"})
+    private Bus bus;
+
+    // ✅ Prevent recursion
+    @OneToMany(mappedBy = "seat")
+    @JsonIgnoreProperties({"seat", "booking"})
+    private List<BookingSeat> bookingSeats;
+
+    public Seats() {}
+
+    public int getSeatId() {
+        return seatId;
+    }
+
+    public void setSeatId(int seatId) {
+        this.seatId = seatId;
+    }
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
+
+    public List<BookingSeat> getBookingSeats() {
+        return bookingSeats;
+    }
+
+    public void setBookingSeats(List<BookingSeat> bookingSeats) {
+        this.bookingSeats = bookingSeats;
+    }
+}

@@ -1,0 +1,59 @@
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.bus-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.bus-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  transition: transform 0.2s ease;
+}
+
+.bus-card:hover {
+  transform: scale(1.01);
+}
+
+/* LEFT */
+.bus-left {
+  flex: 2;
+}
+
+.bus-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.bus-route {
+  color: gray;
+}
+
+.bus-time {
+  font-size: 14px;
+}
+
+/* MIDDLE */
+.bus-middle {
+  flex: 1;
+  text-align: center;
+  color: #555;
+}
+
+/* RIGHT */
+.bus-right {
+  flex: 1;
+  text-align: right;
+}

@@ -1,0 +1,98 @@
+<h2 class="title">Select Your Seats</h2>
+
+<div class="bus-container">
+  <div class="bus-body">
+
+    <div class="seat-section">
+      <div class="seat-row">
+        <div *ngFor="let seat of getSeatGrid()[0].left"
+             class="seat"
+             [class.selected]="isSelected(seat)"
+             [class.booked]="isBooked(seat)"
+             (click)="toggleSeat(seat)">
+          {{ seat }}
+        </div>
+
+        <div *ngFor="let seat of getSeatGrid()[0].right"
+             class="seat"
+             [class.selected]="isSelected(seat)"
+             [class.booked]="isBooked(seat)"
+             (click)="toggleSeat(seat)">
+          {{ seat }}
+        </div>
+      </div>
+
+      <div class="seat-row">
+        <div *ngFor="let seat of getSeatGrid()[1].left"
+             class="seat"
+             [class.selected]="isSelected(seat)"
+             [class.booked]="isBooked(seat)"
+             (click)="toggleSeat(seat)">
+          {{ seat }}
+        </div>
+
+        <div *ngFor="let seat of getSeatGrid()[1].right"
+             class="seat"
+             [class.selected]="isSelected(seat)"
+             [class.booked]="isBooked(seat)"
+             (click)="toggleSeat(seat)">
+          {{ seat }}
+        </div>
+      </div>
+    </div>
+
+    <div class="section-gap"></div>
+
+    <div class="seat-section">
+      <div class="seat-row">
+        <div *ngFor="let seat of getSeatGrid()[2].left"
+             class="seat"
+             [class.selected]="isSelected(seat)"
+             [class.booked]="isBooked(seat)"
+             (click)="toggleSeat(seat)">
+          {{ seat }}
+        </div>
+
+        <div *ngFor="let seat of getSeatGrid()[2].right"
+             class="seat"
+             [class.selected]="isSelected(seat)"
+             [class.booked]="isBooked(seat)"
+             (click)="toggleSeat(seat)">
+          {{ seat }}
+        </div>
+      </div>
+
+      <div class="seat-row">
+        <div *ngFor="let seat of getSeatGrid()[3].left"
+             class="seat"
+             [class.selected]="isSelected(seat)"
+             [class.booked]="isBooked(seat)"
+             (click)="toggleSeat(seat)">
+          {{ seat }}
+        </div>
+
+        <div *ngFor="let seat of getSeatGrid()[3].right"
+             class="seat"
+             [class.selected]="isSelected(seat)"
+             [class.booked]="isBooked(seat)"
+             (click)="toggleSeat(seat)">
+          {{ seat }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="legend">
+  <span class="box available"></span> Available
+  <span class="box selected"></span> Selected
+  <span class="box booked"></span> Booked
+</div>
+
+<div class="summary">
+  <p>Total Seats Selected: {{ selectedCount }}</p>
+  <p>Total Price: ₹{{ totalPrice }}</p>
+</div>
+
+<button class="book-btn" (click)="bookNow()">Book Now</button>
